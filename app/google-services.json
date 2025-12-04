@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "412556333378",
+    "project_id": "modtrackin",
+    "storage_bucket": "modtrackin.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:412556333378:android:77cfa0d712af8e290138db",
+        "android_client_info": {
+          "package_name": "mx.edu.utng.modtrackin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUtlWo-oHBraWxt0tohcZlxMSLdyoYUXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
