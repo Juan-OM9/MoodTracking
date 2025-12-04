@@ -5642,8 +5642,6 @@ Clonar el repositorio:
 
 Bash
 
-git clone [PEGA_AQUI_EL_LINK_DE_TU_REPO_GITHUB]
-Configurar Firebase (IMPORTANTE ⚠️): Este proyecto requiere conexión a Firebase. Debes agregar tu propio archivo de configuración.
 
 Ve a la Consola de Firebase.
 
