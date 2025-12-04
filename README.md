@@ -368,3 +368,9 @@ fun TasksListScreen(
         }
     }
 }
+
+### 🧑‍💻 Autores
+
+Juan Gilberto Mejia Ortiz y Halan Fernando Rodriguez Guerrero
+Institución: Universidad Tecnológica del Norte de Guanajuato (UTNG)
+Materia: Desarrollo de Aplicaciones Móviles
