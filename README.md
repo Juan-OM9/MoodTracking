@@ -47,48 +47,35 @@ Este proyecto sigue estrictamente el patrón de diseño **MVVM** para asegurar u
 
 ### 📐 Diagrama de Arquitectura
 
+El flujo de datos viaja de manera reactiva desde la nube hasta la interfaz de usuario:
 
-┌─────────────────────────────────────────────────────────────┐
-│                      VIEW (UI Layer)                        │
-│               Screens (Home, Tasks, Emotions)               │
-│              (Jetpack Compose - Material 3)                 │
-│                                                             │
-│  👤 "Interfaz de Usuario"                                   │
-│  • Observa estados del ViewModel (collectAsState)           │
-│  • Envía eventos de usuario (clicks, entradas)              │
-└────────────────┬────────────────────────────────────────────┘
-                 │
-                 │ UiState (StateFlow)
-                 ↓
-┌─────────────────────────────────────────────────────────────┐
-│                   VIEWMODEL (Logic Layer)                   │
-│           (TaskViewModel, EmotionViewModel, etc.)           │
-│                                                             │
-│  🧠 "Lógica de Negocio y Estado"                            │
-│  • Gestiona el estado de la UI (Loading, Success, Error)    │
-│  • Sobrevive a cambios de configuración                     │
-│  • Se comunica con los repositorios                         │
-└────────────────┬────────────────────────────────────────────┘
-                 │
-                 │ Suspend Functions
-                 ↓
-┌─────────────────────────────────────────────────────────────┐
-│                  REPOSITORY (Data Layer)                    │
-│          (TaskRepository, EmotionRepository, etc.)          │
-│                                                             │
-│  💾 "Fuente Única de Verdad"                                │
-│  • Abstrae la implementación de Firebase                    │
-│  • Transforma Snapshots de Firestore a objetos Kotlin       │
-│  • Gestiona operaciones asíncronas                          │
-└────────────────┬────────────────────────────────────────────┘
-                 │
-                 │ Network Calls
-                 ↓
-          ┌──────────────────┐
-          │     FIREBASE     │
-          │   (Auth & Data)  │
-          └──────────────────┘
-
+```text
++-------------------------------+
+|         VIEW (UI)             |
+|  (Pantallas Jetpack Compose)  |
++---------------+---------------+
+                ^
+                | (Observa UiState)
+                v
++---------------+---------------+
+|         VIEWMODEL             |
+|    (Lógica de Negocio)        |
++---------------+---------------+
+                ^
+                | (Coroutines)
+                v
++---------------+---------------+
+|        REPOSITORY             |
+|     (Fuente de Verdad)        |
++---------------+---------------+
+                ^
+                | (Internet)
+                v
++---------------+---------------+
+|         FIREBASE              |
+|     (Cloud Firestore)         |
++-------------------------------+
+```
 ## 🛠️ Tecnologías y Herramientas
 
 Este proyecto utiliza un stack tecnológico moderno centrado en el ecosistema nativo de Android y la nube de Google:
